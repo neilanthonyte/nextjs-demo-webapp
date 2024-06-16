@@ -8,7 +8,7 @@ import dynamic from 'next/dynamic';
 
 interface NavBarUICProps {
     menu?: Array<string>
-    menuStyle: "simple" | "boxed"
+    menuStyle?: "simple" | "boxed"
 }
 
 const SimpleMenu = dynamic(() => import("./menu-simple"));
