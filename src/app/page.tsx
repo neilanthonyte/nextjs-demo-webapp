@@ -9,7 +9,7 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen">
-      <NavBarUIC />
+      <NavBarUIC {...{menu: ["HOME", "WEB APPS", "COMPONENTS", "CONTACT US"]}} />
     </main>
   );
 }
