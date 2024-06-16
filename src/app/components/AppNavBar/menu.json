@@ -1,0 +1,7 @@
+{
+    "menu": [
+        {"id": "home", "label": "Home", "route": "/"},
+        {"id": "navbars", "label": "Nav Bars", "route": "/navbars"},
+        {"id": "slides", "label": "Slide Shows", "route": "/slideshows"}
+    ]
+}
