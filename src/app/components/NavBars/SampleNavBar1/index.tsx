@@ -5,25 +5,30 @@ import Image from 'next/image';
 import UserIcon from '@/app/assets/profile.png';
 import AppLogo from '@/app/assets/logo.png';
 import dynamic from 'next/dynamic';
+import {useNavBarHooks} from "./navbar.hooks";
 
-interface NavBarUICProps {
-    menu?: Array<string>
-    menuStyle?: "simple" | "boxed"
+interface NavBarSample1Props {
+    menu?: Array<string>,
+    menuStyle?: "simple" | "boxed",
+    mobileMenuStyle?: "dropdown" | "drawer"
 }
 
-const SimpleMenu = dynamic(() => import("./menu-simple"));
+const SimpleMenu = dynamic(() => import("../menu-simple"));
+const PopUpMenu = dynamic(() => import("../drop-down"));
+const DrawerMenu = dynamic(() => import("../drawer"));
 
-const NavBarUIC = ({menu = [], menuStyle = "simple"}: NavBarUICProps) => {
+const NavBarSample1 = ({menu = [], menuStyle = "simple", mobileMenuStyle = "drawer"}: NavBarSample1Props) => {
     const MENU: Array<string> = menu.length > 0 ? menu : ["Home"];
+    const {showMobileMenu, setShowMobileMenu} = useNavBarHooks();
 
     return (
         <>
             {/** NAV BAR CONTAINER */}
-            <div className="flex w-full h-12 flex-row md:px-6">
+            <div className="flex w-full h-12 flex-row md:px-6 z-20">
                 {/** MOBILE MENU DROP DOWN CONTAINER */}
                 <div className="flex h-12 w-auto justify-center items-center">
                     {/** HIDE IF SCREEN SIZE IS DESKTOP BUT SHOW ON MOBILE */}
-                    <div className="p-2 block md:hidden ">
+                    <div className="p-2 block md:hidden" onClick={() => setShowMobileMenu(!showMobileMenu)}>
                         <HamburgerIcon boxSize={6} />
                     </div>
                 </div>
@@ -62,8 +67,11 @@ const NavBarUIC = ({menu = [], menuStyle = "simple"}: NavBarUICProps) => {
                     </div>
                 </div>
             </div>
+
+            {/** DROP DOWN */}
+            {showMobileMenu ? mobileMenuStyle === "dropdown" ? (<PopUpMenu {...{menu: MENU}} />) : (<DrawerMenu {...{menu: MENU}} />) : null}
         </>
     )
 }
 
-export default NavBarUIC;
+export default NavBarSample1;

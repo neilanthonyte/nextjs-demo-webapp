@@ -1,6 +1,6 @@
 const HomePage = () => {
     return (
-        <div>home</div>
+        <div className="flex justify-center items-center min-h-screen">Welcome to my NextJS Portfolio</div>
     )
 }
 

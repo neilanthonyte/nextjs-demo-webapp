@@ -3,7 +3,7 @@
 import dynamic from 'next/dynamic';
 import Menu from "./components/AppNavBar/menu.json";
 
-const NavBarUIC = dynamic(() => import("./components/NavBars"));
+const NavBarUIC = dynamic(() => import("./components/NavBars/SampleNavBar1"));
 const AppNavBar = dynamic(() => import("./components/AppNavBar"));
 const HomePage = dynamic(() => import("./tabpages/home"));
 const NavBarPage = dynamic(() => import("./tabpages/navbars"));
