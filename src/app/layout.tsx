@@ -6,8 +6,8 @@ import { ChakraProvider } from '@chakra-ui/react';
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "NextJS Portfolio",
-  description: "Demo web app using NextJS, Tailwind and Typescript.",
+  title: "NextJS React Components",
+  description: "Demo web app components using NextJS, Tailwind and Typescript.",
 };
 
 export const viewport: Viewport = {
